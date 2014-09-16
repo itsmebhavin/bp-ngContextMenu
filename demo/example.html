@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head lang="en">
+    <meta charset="utf-8">
+    <title>Bootstrap Table Directive</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+    <script src="~/src/bp-ngContextMenu.js"></script>
+    <script src="controller.js"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css"
+    rel="stylesheet">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js"></script>
+    <style>
+      table.cell-highlight > tbody > tr:hover {
+        opacity: 0.5; 
+        -webkit-transition: opacity 0.15s linear;
+           -moz-transition: opacity 0.15s linear;
+             -o-transition: opacity 0.15s linear;
+                transition: opacity 0.15s linear;
+      }
+    </style>
+  </head>  
+  <body ng-controller="Ctrl">
+    <h1>Bootstrap Context Menu</h1>
+      <p>The following table contains the <b>context menu</b> directive,
+      which offers the ability to open up a dropdown menu in case of a 
+      click on the table row. The directive is bound via <b>context="targetUL"</b>
+      and references the <b>ul</b> defined in the document. All click events are
+      catched, in case on a document click, the context menu is closed.
+      </p>
+      <p>
+        The scope is applied to the context menu, and the model
+        is passed through via scope : '@&', so all click events are passed
+        through to the parent controller. That makes the context menu really
+        easy to use and the events easy to catch.
+      </p>
+    <table class="table table-bordered table-striped cell-highlight" 
+    style="margin-top: 20px" on-right-click="ShowContextMenu()">
+      <thead>
+        <tr>
+          <th>Header One</th>
+          <th>Header Two</th>
+        </tr>
+      </thead>  
+      <tbody>    
+        <tr context="context1">
+          <td>Item three</td>
+          <td>Item four</td>
+        </tr>
+        <tr context="context2">
+          <td>Item five</td>
+          <td>Item six</td>
+        </tr>
+      </tbody>
+    </table>      
+    <ul id="context1" class="dropdown-menu">
+      <li><a ng-click="edit()">Edit</a></li>
+      <li><a ng-click="link()">Link</a></li>
+      <li><a ng-click="delete()">Delete</a></li>
+      <li class="divider"></li>
+      <li><a ng-click="properties()">Properties</a></li>
+    </ul>
+    <ul id="context2" class="dropdown-menu">
+      <li><a ng-click="edit()">Edit</a></li>
+      <li class="divider"></li>
+      <li><a ng-click="properties()">Properties</a></li>
+    </ul>
+    <pre>clicked = {{clicked || json }}</pre>
+  </body>
+</html>
+
