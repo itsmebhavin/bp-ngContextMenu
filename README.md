@@ -66,13 +66,12 @@ http://plnkr.co/edit/LMr7AN
 
 Other repo
 -----
-https://github.com/ianwalter/ng-context-menu
-https://github.com/Templarian/ui.bootstrap.contextMenu
+- https://github.com/ianwalter/ng-context-menu
+- https://github.com/Templarian/ui.bootstrap.contextMenu
 
 
 Further angularjs help, articles & other programming stuff at my blog
------------------------------------------------------------------------
-
+--------------------------------------------------------------
 ``` 
 http://itsmebhavin.wordpress.com
 ```
